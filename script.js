@@ -14,10 +14,71 @@ books_math = ['alg book','analyse','calc book'];
 
 
 
-function createSection(){
+
+
+
+
+/** Functions to create the HTML */
+function createMajorSection(){
     let sect = document.createElement("section");
     sect.classList.add("major-group");
+
+    let searchbar = document.createElement("div");
+    searchbar.classList.add("major-group__searchBar");
+    searchbar.classList.add("title");
+
+    let title = document.createElement("p");
+    let text = document.createTextNode("Choose your Major");
+    title.appendChild(text);
+
+    let input = document.createElement("input");
+    input.setAttribute("type","text");
+    input.setAttribute("placeholder","Search Major");
+    input.id ="major-input";
+
+    searchbar.appendChild(title);
+    searchbar.appendChild(input);
+
+    let list = document.createElement("div");
+    list.classList.add("major-group__list");
+
+    let ul = document.createElement("ul");
+
+    for (i=0;i<majors.length;i++){
+        let li = document.createElement("li");
+        li.classList.add("major-list--item");
+        let btn = document.createElement("button");
+        btn.id = i+1;
+        majorname = document.createTextNode(majors[i]);
+        btn.appendChild(majorname);
+        li.appendChild(btn);
+        ul.appendChild(li);
+    }
+    list.appendChild(ul);
+
+    sect.appendChild(searchbar);
+    sect.appendChild(list);
+
+    document.getElementById("section-container").appendChild(sect);
+
 }
+
+createMajorSection();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

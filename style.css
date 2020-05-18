@@ -79,7 +79,7 @@ header{
 /*body sections*/
 
 
-.section-container{
+#section-container{
     display: inline-block;
     width: 100%;
     
